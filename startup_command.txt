@@ -1,0 +1,5 @@
+$env:MCP_ENDPOINT="<your_mcp_endpoint>" <>一定要去掉
+python mcp_pipe.py
+python mcp_pipe.py calculator.py
+wss改ws
+/root/mcp-calculator-main/venv/bin/python mcp_pipe.py

@@ -1,0 +1,7 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "pgrep": true,
+        "true": true,
+        "准备用字节级替换修正路径并保留其它内容；执行替换并输出变更结果": true
+    }
+}

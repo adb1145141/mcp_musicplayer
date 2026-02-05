@@ -1,0 +1,28 @@
+# Nginx 配置：将 JAYCHOU 音乐目录作为 HTTP 拉流
+# 用法：
+#   1. 复制到 /etc/nginx/sites-available/music（或你的配置目录）
+#   2. 改 root 路径为你的 JAYCHOU 绝对路径
+#   3. 改 server_name 为你的域名/IP（或保持 _）
+#   4. sudo ln -s /etc/nginx/sites-available/music /etc/nginx/sites-enabled/
+#   5. sudo nginx -t && sudo systemctl reload nginx
+
+server {
+    listen 8080;
+    server_name _;   # 改成你的域名或 IP，或保持 _ 表示任意
+
+    root /root/mcp-calculator-main/JAYCHOU;  # 改成你的 JAYCHOU 绝对路径
+    location / {
+        add_header Access-Control-Allow-Origin *;
+        add_header Content-Type "audio/mpeg";
+        # 支持 Range 请求，便于流式播放和断点续传
+        try_files $uri $uri/ =404;
+    }
+}
+
+# 若希望用子路径（如 https://域名/music/），在现有 server 块里添加：
+# location /music/ {
+#     alias /root/mcp-calculator-main/JAYCHOU/;
+#     add_header Access-Control-Allow-Origin *;
+#     add_header Content-Type "audio/mpeg";
+# }
+# 此时 MUSIC_BASE_URL = https://域名/music/

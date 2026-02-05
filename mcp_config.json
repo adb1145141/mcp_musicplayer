@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "excel_tool": {
+      "command": "/root/mcp-calculator-main/venv/bin/python",
+      "args": [
+        "excel.py"
+      ],
+      "type": "stdio",
+      "env": {
+        "PYTHONUTF8": "1"
+      }
+    },
+    "calculator": {
+      "command": "/root/mcp-calculator-main/venv/bin/python",
+      "args": [
+        "calculator.py"
+      ],
+      "type": "stdio"
+    },
+    "12306-remote": {
+      "url": "https://mcp.api-inference.modelscope.net/c1ad6ab17b5441/sse",
+      "type": "sse"
+    },
+    "amap-maps": {
+      "url": "https://mcp.api-inference.modelscope.net/63f04dcaea9d4a/sse",
+      "type": "sse"
+    },
+    "music_player": {
+      "command": "/root/mcp-calculator-main/venv/bin/python",
+      "args": [
+        "/root/mcp-calculator-main/mcp_music_player.py"
+      ],
+      "type": "stdio",
+      "env": {
+        "PYTHONUTF8": "1",
+        "MUSIC_BASE_URL": "http://114.67.208.171/JAYCHOU/"
+      }
+    }
+  }
+}
